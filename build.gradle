@@ -26,6 +26,8 @@ dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter-engine:6.0.3'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	implementation 'io.qameta.allure:allure-rest-assured:2.35.3'
+	implementation 'com.codeborne:selenide:7.16.2'
+	implementation 'io.qameta.allure:allure-selenide:2.35.3'
 }
 
 tasks.named('test') {
