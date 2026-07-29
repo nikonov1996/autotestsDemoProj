@@ -1,13 +1,27 @@
 package com.example.autotestsDemoProj;
 
+import io.restassured.RestAssured;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import static io.restassured.RestAssured.given;
+
 class AutotestsDemoProjApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+
+    @BeforeAll
+    public static void setUp() {
+        RestAssured.baseURI = "https://randomuser.me";
+    }
+
+    @Test
+    public void contextLoads() {
+       given()
+                .header("Content-Type", "application/json")
+                .when()
+                .get("/api/")
+                .then()
+                .statusCode(200);
+    }
 
 }
