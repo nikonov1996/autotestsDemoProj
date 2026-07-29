@@ -1,5 +1,6 @@
 package com.example.autotestsDemoProj;
 
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -16,7 +17,7 @@ class AutotestsDemoProjApplicationTests {
 
     @Test
     public void contextLoads() {
-       given()
+       given().filter(new AllureRestAssured())
                 .header("Content-Type", "application/json")
                 .when()
                 .get("/api/")
